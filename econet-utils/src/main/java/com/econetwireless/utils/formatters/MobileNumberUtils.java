@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  */
 public class MobileNumberUtils {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(MobileNumberUtils.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(MobileNumberUtils.class);
 
     private MobileNumberUtils() {
 
@@ -22,7 +22,7 @@ public class MobileNumberUtils {
         if (newMobileNumber.length() > 9) {
             newMobileNumber = trimMobile(newMobileNumber);
         }
-        try {
+        try {a++++++
             if (isNumeric(newMobileNumber)) {
                 if (newMobileNumber.startsWith("77") || newMobileNumber.startsWith("78")) {
                     return newMobileNumber;
