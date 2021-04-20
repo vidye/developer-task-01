@@ -1,0 +1,118 @@
+1.IntelligentNetworkPublisher.java
+fixed Import and referenced to the correct dependencies
+Updated maven
+
+2.MobileNumberUtils.java
+
+"MobileNumberUtils.java: Changed final to static on declaration of Logger object"
+
+3.SubscriberRequest.java
+
+java: cannot find symbol
+  symbol:   class PreInsert
+  location: class com.econetwireless.epay.domain.SubscriberRequest
+  
+Solution: replaced replaced @PreInsert annotation with @PrePersist
+
+  
+  
+4.PartnerCodeValidatorImpl.java
+Error: java: '.' expected
+  
+Solution: replaced this(super); with super();
+  
+  
+5.IntegrationsConfig.java
+
+Error: java: package com.econetwireless.in.webservice does not exist
+  
+Solution: fixed import com.econetwireless.in.webservice and replaced with import com.econetwireless.in.soap.service.IntelligentNetworkService
+
+
+6.ChargingPlatformImpl.java
+
+import com.econetwireless.in.webservice.CreditRequest;
+import com.econetwireless.in.webservice.IntelligentNetworkService;
+
+Error: java: package com.econetwireless.in.webservice does not exist
+
+Solution changed import to :
+
+import com.econetwireless.in.soap.messages.CreditRequest;
+import com.econetwireless.in.soap.service.IntelligentNetworkService;
+
+
+7.MessageConverters.java
+import com.econetwireless.in.webservice.BalanceResponse;
+import com.econetwireless.in.webservice.CreditRequest;
+import com.econetwireless.in.webservice.CreditResponse;
+
+Error: java: package com.econetwireless.in.webservice does not exist
+
+solution fixed import to reference the correct depedences:
+
+import com.econetwireless.in.soap.messages.BalanceResponse;
+import com.econetwireless.in.soap.messages.CreditRequest;
+import com.econetwireless.in.soap.messages.CreditResponse;
+
+
+8.CreditsServiceImpl.java
+final SubscriberRequest createdSubscriberRequest = subscriberRequestDao.persist(subscriberRequest);
+
+Error:
+java: cannot find symbol
+symbol:   method persist(com.econetwireless.epay.domain.SubscriberRequest)
+location: variable subscriberRequestDao of type com.econetwireless.epay.dao.subscriberrequest.api.SubscriberRequestDao
+  
+Solution: fixed method persist(subscriberRequest) to subscriberRequestDao.save(subscriberRequest);
+  
+  java: cannot find symbol
+  symbol:   method update(com.econetwireless.epay.domain.SubscriberRequest)
+  location: variable subscriberRequestDao of type com.econetwireless.epay.dao.subscriberrequest.api.SubscriberRequestDao
+  
+
+fixed method update(createdSubscriberRequest) to subscriberRequestDao.save(createdSubscriberRequest);
+
+
+9.EnquiriesServiceImpl.java
+
+java: cannot find symbol
+  symbol:   method persist(com.econetwireless.epay.domain.SubscriberRequest)
+  location: variable subscriberRequestDao of type com.econetwireless.epay.dao.subscriberrequest.api.SubscriberRequestDao
+  
+  solution: fixed method to subscriberRequestDao.save(subscriberRequest);
+  Fixed method subscriberRequestDao.persist(subscriberRequest) to subscriberRequestDao.save(subscriberRequest)
+
+
+subscriberRequestDao.update(createdSubscriberRequest);
+java: cannot find symbol
+	symbol:   method update(com.econetwireless.epay.domain.SubscriberRequest)
+	location: variable subscriberRequestDao of type com.econetwireless.epay.dao.subscriberrequest.api.SubscriberRequestDao
+
+	fixed method to subscriberRequestDao.save(createdSubscriberRequest);
+  
+Last Build results:  4/20/2021 9:30 AM - Build completed successfully in 6 sec, 199 ms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
